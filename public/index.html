@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Downloader | Download Any Website</title>
+    <meta name="description" content="Download the complete source code of any website including all assets">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" rx="12" fill="url(#gradient)" />
+                    <path d="M24 14L24 28M24 28L30 22M24 28L18 22" stroke="white" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14 32H34" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="48" y2="48">
+                            <stop stop-color="#6366F1" />
+                            <stop offset="1" stop-color="#8B5CF6" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="logo-text">
+                    <h1>Website Downloader</h1>
+                    <span class="version">v2.0</span>
+                </div>
+            </div>
+            <p class="tagline">Download complete source code of any website</p>
+        </header>
+
+        <section class="download-card glass">
+            <form id="download-form" class="download-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M10 1.667a8.333 8.333 0 100 16.666 8.333 8.333 0 000-16.666zM1.667 10h16.666M10 1.667A12.5 12.5 0 0113.333 10 12.5 12.5 0 0110 18.333 12.5 12.5 0 016.667 10 12.5 12.5 0 0110 1.667z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <input type="url" id="url-input" name="url" placeholder="https://example.com" required
+                            autocomplete="off">
+                        <button type="button" id="paste-btn" class="paste-btn" title="Paste from clipboard">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path
+                                    d="M12 3h1.5a1.5 1.5 0 011.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 013 15V4.5A1.5 1.5 0 014.5 3H6"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <rect x="6" y="1.5" width="6" height="3" rx="1" stroke="currentColor"
+                                    stroke-width="1.5" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="submit" id="download-btn" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 3v10m0 0l4-4m-4 4l-4-4M4 15h12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Download</span>
+                    </button>
+                </div>
+
+                <details class="options-panel">
+                    <summary class="options-toggle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M6.5 1.5h3v2h3.5v3h-2v3h2v3h-3.5v2h-3v-2H3v-3h2v-3H3v-3h3.5v-2zM8 5.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"
+                                stroke="currentColor" stroke-width="1.2" />
+                        </svg>
+                        Advanced Options
+                        <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </summary>
+                    <div class="options-content">
+                        <div class="option-group">
+                            <label for="depth">Crawl Depth</label>
+                            <select id="depth" name="depth">
+                                <option value="1">1 - Current page only</option>
+                                <option value="2" selected>2 - Include linked pages</option>
+                                <option value="3">3 - Deep crawl</option>
+                                <option value="4">4 - Very deep</option>
+                                <option value="5">5 - Maximum</option>
+                            </select>
+                        </div>
+                        <div class="option-group spa-mode">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="render-javascript" name="renderJavaScript">
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text">
+                                    <strong>🚀 JavaScript/SPA Mode</strong>
+                                    <small>Render React, Vue, Angular sites (slower but more complete)</small>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-images" name="includeImages" checked>
+                                <span class="checkmark"></span>
+                                Include Images
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-styles" name="includeStyles" checked>
+                                <span class="checkmark"></span>
+                                Include CSS
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-scripts" name="includeScripts" checked>
+                                <span class="checkmark"></span>
+                                Include JS
+                            </label>
+                        </div>
+                    </div>
+                </details>
+            </form>
+
+            <div id="progress-section" class="progress-section hidden">
+                <div class="progress-header">
+                    <div class="progress-info">
+                        <span id="progress-status" class="progress-status">Starting download...</span>
+                        <span id="progress-files" class="progress-files">0 files</span>
+                    </div>
+                    <button id="cancel-btn" class="btn btn-ghost btn-sm">Cancel</button>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <p id="progress-current" class="progress-current"></p>
+            </div>
+
+            <div id="result-section" class="result-section hidden">
+                <div class="result-success">
+                    <svg class="result-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="20" fill="#10B981" fill-opacity="0.2" />
+                        <path d="M16 24l6 6 10-12" stroke="#10B981" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3>Download Ready!</h3>
+                    <p id="result-info"></p>
+                    <a id="download-link" href="#" class="btn btn-success">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 3v10m0 0l4-4m-4 4l-4-4M4 15h12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Download ZIP
+                    </a>
+                </div>
+            </div>
+
+            <div id="error-section" class="error-section hidden">
+                <div class="error-content">
+                    <svg class="error-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="20" fill="#EF4444" fill-opacity="0.2" />
+                        <path d="M24 16v8M24 28v2" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                    <h3>Download Failed</h3>
+                    <p id="error-message"></p>
+                    <button id="retry-btn" class="btn btn-outline">Try Again</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="history-section" class="history-section glass hidden">
+            <h2 class="history-title">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+                Recent Downloads
+            </h2>
+            <ul id="history-list" class="history-list"></ul>
+        </section>
+
+        <footer class="footer">
+            <p>Files are automatically deleted after 1 hour</p>
+            <a href="https://github.com" target="_blank" rel="noopener">View on GitHub</a>
+        </footer>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

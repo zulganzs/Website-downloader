@@ -1,4 +1,4 @@
-# Website Downloader v2.0 🌐
+# Website Downloader 🌐
 
 Download the complete source code of any website including all assets.
 
